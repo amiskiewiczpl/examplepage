@@ -7,46 +7,41 @@
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <header>
-    <h1>Sowieckie Domki i Hotele</h1>
-    <nav>
-      <a href="#oferta">Oferta</a>
-      <a href="#galeria">Galeria</a>
-      <a href="#kontakt">Kontakt</a>
-    </nav>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo">Domki & Hotele</h1>
+      <nav class="main-nav">
+        <a href="pages/oferta.html">Oferta</a>
+        <a href="pages/galeria.html">Galeria</a>
+        <a href="pages/kontakt.html">Kontakt</a>
+      </nav>
+    </div>
   </header>
 
   <section class="hero">
-    <h2>Wypoczynek marzeń czeka na Ciebie w naszych kołchozach</h2>
-    <p>Zarezerwuj domek lub pokój już dziś.</p>
-    <a href="#oferta" class="btn">Zobacz ofertę</a>
+    <div class="container">
+      <h2>Wypoczynek jak marzenie</h2>
+      <p>Sowieckie domki i socjalistyczne pokoje w czerwonej okolicy.</p>
+      <a href="pages/oferta.html" class="btn">Sprawdź ofertę</a>
+    </div>
   </section>
 
-  <section id="oferta">
-    <h2>Nasza oferta</h2>
-    <div class="card">
-  <h3>Domek Leśny</h3>
-  <p>2 sypialnie, kominek, taras.</p>
-  <span>od 300 PLN/noc</span>
-</div>
+  <section class="highlights container">
+    <div class="highlight">
+      <h3>Przytulne domki</h3>
+      <p>Kominek, taras z widokiem i 0 własności prywatnej.</p>
+    </div>
+    <div class="highlight">
+      <h3>Apartamenty premium</h3>
+      <p>Jacuzzi, sauna i przestrzeń dla proletariatu.</p>
+    </div>
+    <div class="highlight">
+      <h3>Restauracja na miejscu</h3>
+      <p>Śniadanie radziecki stół i regionalne specjały.</p>
+    </div>
   </section>
 
-  <section id="galeria">
-    <h2>Galeria</h2>
-<img src="img/domek1.jpg" alt="Domek 1" />
-<img src="img/pokoj1.jpg" alt="Pokój 1" />
-  </section>
-
-  <section id="kontakt">
-    <h2>Kontakt</h2>
-    <form>
-  <input type="text" placeholder="Imię" required />
-  <input type="email" placeholder="E-mail" required />
-  <button type="submit">Wyślij</button>
-</form>
-  </section>
-
-  <footer>
+  <footer class="site-footer container">
     <p>&copy; 2025 Domki i Hotele</p>
   </footer>
 </body>
