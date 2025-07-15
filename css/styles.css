@@ -1,8 +1,49 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #d12a2a;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-h1 {
-  color: #dfee10;
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+}
+
+header {
+  background: #004d40;
+  color: #fff;
+  padding: 1rem;
+}
+
+header nav a {
+  color: #fff;
+  margin-left: 1rem;
+  text-decoration: none;
+}
+
+.hero {
+  background: #ccc url('../img/hero.jpg') center/cover no-repeat;
+  color: #000;
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.btn {
+  background: #ffca28;
+  color: #000;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+section {
+  padding: 2rem 1rem;
+}
+
+footer {
+  background: #222;
+  color: #ccc;
+  text-align: center;
+  padding: 1rem;
 }
