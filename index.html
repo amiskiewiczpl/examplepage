@@ -1,87 +1,129 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sowieckie Domki i Hotele</title>
-  <link rel="stylesheet" href="css/styles.css" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Sowieckie Domki i Hotele – Luksus w Chojnach</title>
+
+  <!-- Fonty -->
+  <link href="https://fonts.googleapis.com/css2?
+    family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap"
+    rel="stylesheet"/>
+
+  <link rel="stylesheet" href="css/styles.css"/>
 </head>
 <body>
-<header class="site-header container">
-  <a href="index.html" class="logo">Domki & Hotele</a>
-  <nav class="main-nav">
-    <a href="index.html" class="active">Home</a>
-    <a href="pages/oferta.html">Oferta</a>
-    <a href="pages/galeria.html">Galeria</a>
-    <a href="pages/fakultety.html">Fakultety</a>
-    <a href="pages/kontakt.html">Kontakt</a>
-    <a href="#booking-modal" class="btn btn-primary">Rezerwuj</a>
-  </nav>
-</header>
 
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">Sowieckie<span> Domki</span></a>
+      <nav class="main-nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="pages/oferta.html">Oferta</a>
+        <a href="pages/galeria.html">Galeria</a>
+        <a href="pages/Fakultety.html">Fakultety</a>
+        <a href="pages/kontakt.html">Kontakt</a>
+        <a href="#booking-modal" class="btn btn-primary booking-btn">Rezerwuj</a>
+      </nav>
+    </div>
+  </header>
 
-  <section class="banner">
-  <div class="banner-slide" style="background-image:url('img/banner1.jpg')">
-    <div class="banner-content">
-      <h2>Wypoczynek jak marzenie</h2>
-      <p>Domki i apartamenty w sercu malowniczych Chojnów Pod Ostrowią</p>
-      <a href="pages/oferta.html" class="btn">Sprawdź ofertę</a>
+  <!-- HERO FULLSCREEN -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content container">
+      <h1>Wypoczynek jak za Złotej Ery</h1>
+      <p>Ekskluzywne domki i apartamenty w malowniczych Chojnach pod Ostrowią</p>
+      <a href="pages/oferta.html" class="btn btn-secondary">Sprawdź ofertę</a>
+    </div>
+  </section>
+
+  <!-- PREVIEW OFERT -->
+  <section class="offers-preview container">
+    <h2>Polecane oferty</h2>
+    <div class="grid cards">
+      <article class="card">
+        <img src="img/offer1.jpg" alt="Domek Leśny"/>
+        <div class="card-body">
+          <h3>Domek Leśny</h3>
+          <span class="price">od 350 PLN/noc</span>
+        </div>
+      </article>
+      <article class="card">
+        <img src="img/offer2.jpg" alt="Pokój Deluxe"/>
+        <div class="card-body">
+          <h3>Pokój Deluxe</h3>
+          <span class="price">od 220 PLN/noc</span>
+        </div>
+      </article>
+      <article class="card">
+        <img src="img/offer3.jpg" alt="Apartament Luksus"/>
+        <div class="card-body">
+          <h3>Apartament Luksus</h3>
+          <span class="price">od 600 PLN/noc</span>
+        </div>
+      </article>
+    </div>
+    <a href="pages/oferta.html" class="btn btn-primary more-btn">Zobacz wszystkie</a>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials container">
+    <h2>Co mówią nasi goście</h2>
+    <div class="testimonial-slider">
+      <div class="slide active">
+        <p>"Niezapomniany weekend! Polecam."</p>
+        <span>– Anna z Warszawy</span>
+      </div>
+      <div class="slide">
+        <p>"Wszystko dopięte na ostatni guzik."</p>
+        <span>– Marek z Gdańska</span>
+      </div>
+      <!-- Dodaj JS do slidera lub animuj CSS-em -->
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-cols">
+      <div>
+        <h4>Kontakt</h4>
+        <p>Chojny pod Ostrowią</p>
+        <p>tel. +48 123 456 789</p>
+      </div>
+      <div>
+        <h4>Social</h4>
+        <p><a href="#">Facebook</a> | <a href="#">Instagram</a></p>
+      </div>
+      <div>
+        <h4>© 2025 Sowieckie Domki</h4>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BOOKING MODAL -->
+  <div id="booking-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Rezerwacja</h2>
+      <input id="date-picker" placeholder="Wybierz daty" readonly/>
+      <input type="number" id="guests" placeholder="Liczba gości"/>
+      <button id="confirm-booking" class="btn btn-primary">Potwierdź</button>
     </div>
   </div>
-  <!-- możesz dodać kolejne slajdy -->
-</section>
 
-
-<section class="highlights container">
-  <div class="highlight">
-    <h3>Przytulne domki</h3>
-    <p>Kominek, taras z widokiem i 0 własności prywatnej.</p>
-  </div>
-  <div class="highlight">
-    <h3>Apartamenty premium</h3>
-    <p>Jacuzzi, sauna i przestrzeń dla proletariatu.</p>
-  </div>
-  <div class="highlight">
-    <h3>Restauracja na miejscu</h3>
-    <p>Śniadanie radziecki stół i regionalne specjały.</p>
-  </div>
-</section>
-
-
-  <footer class="site-footer container">
-    <p>&copy; 2025 Domki i Hotele</p>
-  </footer>
-  <!-- Rezerwacja modal -->
-<div id="booking-modal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2>Rezerwacja</h2>
-    <input id="date-picker" placeholder="Wybierz datę" readonly>
-    <input type="text" id="guests" placeholder="Liczba gości" />
-    <button id="confirm-booking" class="btn">Potwierdź</button>
-  </div>
-</div>
-
-<!-- Flatpickr -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-<script>
-  flatpickr("#date-picker", {
-    minDate: "today",
-    dateFormat: "d-m-Y"
-  });
-
-  document.querySelector('.booking-btn').onclick = () =>
-    document.getElementById('booking-modal').style.display = 'block';
-
-  document.querySelector('.close').onclick = () =>
-    document.getElementById('booking-modal').style.display = 'none';
-
-  document.getElementById('confirm-booking').onclick = () => {
-    alert('Dziękujemy! Twoja rezerwacja została przesłana.');
-    document.getElementById('booking-modal').style.display = 'none';
-  };
-</script>
-
+  <!-- Flatpickr + Booking Script -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script>
+    flatpickr("#date-picker",{mode:"range",minDate:"today",dateFormat:"d-m-Y"});
+    document.querySelector('.booking-btn').onclick = ()=> document.getElementById('booking-modal').style.display='flex';
+    document.querySelector('.close').onclick     = ()=> document.getElementById('booking-modal').style.display='none';
+    document.getElementById('confirm-booking').onclick = ()=>{
+      alert('Dziękujemy! Rezerwacja przyjęta.');
+      document.getElementById('booking-modal').style.display='none';
+    };
+  </script>
 </body>
 </html>
