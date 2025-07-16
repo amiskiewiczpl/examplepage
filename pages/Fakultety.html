@@ -7,81 +7,85 @@
   <link rel="stylesheet" href="../css/styles.css" />
 </head>
 <body>
+  <!-- 1. Nagłówek z ujednoliconą nawigacją -->
   <header class="site-header container">
     <a href="../index.html" class="logo">Domki & Hotele</a>
     <nav class="main-nav">
       <a href="../index.html">Home</a>
       <a href="oferta.html">Oferta</a>
       <a href="galeria.html">Galeria</a>
-      <a href="kontakt.html">Kontakt</a>
       <a href="fakultety.html" class="active">Fakultety</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="#booking-modal" class="btn btn-primary">Rezerwuj</a>
     </nav>
   </header>
 
-  <main class="container">
+  <!-- 2. Sekcja Fakultety z kartami -->
+  <main class="container fakultety">
     <h2>Fakultety – dodatkowe atrakcje</h2>
-    <ul class="fakultety-list">
-      <li><a href="#" id="map-link">Mapa Chojnów pod Ostrowią</a></li>
-      <li><a href="#" id="piranha-link">Polowanie na piranie</a></li>
-      <li><a href="#" id="legia-link">Oglądanie meczów</a></li>
-    </ul>
+    <div class="fakultety-cards">
+      <!-- Mapa okolicy -->
+      <article class="fakultet-card">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!…TwojaPropozycja…"
+          loading="lazy"></iframe>
+        <div class="card-body">
+          <h3>Mapa Chojnów pod Ostrowią</h3>
+          <p>Sprawdź okoliczne szlaki i punkty widokowe.</p>
+        </div>
+      </article>
+
+      <!-- Polowanie na piranie -->
+      <article class="fakultet-card">
+        <img src="../img/pirania.jpg" alt="Polowanie na piranie" />
+        <div class="card-body">
+          <h3>Polowanie na piranie</h3>
+          <p>Adrenalina nad wodą – z przewodnikiem i sprzętem.</p>
+        </div>
+      </article>
+
+      <!-- Odwrócony herb Legii -->
+      <article class="fakultet-card">
+        <img src="../img/legia-inverted.png" alt="Odwrócony herb Legii" />
+        <div class="card-body">
+          <h3>Odwrócony herb Legii Warszawa</h3>
+          <p>Sympatyczna opowieść o lokalnej legendzie sportowej.</p>
+        </div>
+      </article>
+    </div>
   </main>
 
-  <!-- Modal generowany przez JS -->
-  <div id="fakultety-modal" class="modal">
+  <!-- 3. Modal rezerwacji ( taki sam jak w index.html ) -->
+  <div id="booking-modal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
-      <div id="fakultety-content"></div>
+      <h2>Rezerwacja</h2>
+      <input id="date-picker" placeholder="Wybierz daty" readonly />
+      <input type="number" id="guests" placeholder="Liczba gości" />
+      <button id="confirm-booking" class="btn btn-primary">Potwierdź</button>
     </div>
   </div>
 
+  <!-- Flatpickr + skrypty -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const modal = document.getElementById('fakultety-modal');
-    const content = document.getElementById('fakultety-content');
+    // Kalendarz
+    flatpickr("#date-picker",{mode:"range",minDate:"today",dateFormat:"d-m-Y"});
 
-    const handlers = {
-      'map-link': () => {
-        content.innerHTML = `
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2505.1234567890123!2d21.800000!3d52.100000!2m3!1f0!2f0!3f0!3m2
-            !1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xabcdef!2sChojn%C3%B3w%20pod%20Ostrowi%C4%85!5e0!3m2!1spl!2spl!4v0000000000000"
-            width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy">
-          </iframe>
-        `;
-      },
-      'piranha-link': () => {
-        content.innerHTML = `
-          <img src="../img/pirania.jpg" 
-               alt="Polowanie na piranie" 
-               style="width:100%;border-radius:8px;" />
-        `;
-      },
-      'legia-link': () => {
-        content.innerHTML = `
-          <img src="../img/legia-inverted.png" 
-               alt="Odwrócony herb Legii Warszawa" 
-               style="max-width:200px;display:block;margin:auto;" />
-        `;
-      }
-    };
-
-    Object.keys(handlers).forEach(id => {
-      document.getElementById(id).onclick = e => {
+    // Modal booking
+    document.querySelectorAll('.btn-primary.booking-btn, .btn-primary[href="#booking-modal"]')
+      .forEach(el=> el.onclick = e=>{
         e.preventDefault();
-        handlers[id]();
-        modal.style.display = 'block';
-      };
-    });
+        document.getElementById('booking-modal').style.display='flex';
+      });
 
-    document.querySelector('#fakultety-modal .close').onclick = () => {
-      modal.style.display = 'none';
+    document.querySelector('.modal .close').onclick = ()=>
+      document.getElementById('booking-modal').style.display='none';
+    document.getElementById('confirm-booking').onclick = ()=>{
+      alert('Dziękujemy! Rezerwacja przyjęta.');
+      document.getElementById('booking-modal').style.display='none';
     };
-
-    window.onclick = e => {
-      if (e.target === modal) modal.style.display = 'none';
-    };
-  });
   </script>
 </body>
 </html>
