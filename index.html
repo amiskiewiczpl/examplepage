@@ -11,20 +11,26 @@
     <div class="container">
       <h1 class="logo">Domki & Hotele</h1>
       <nav class="main-nav">
-        <a href="pages/oferta.html">Oferta</a>
-        <a href="pages/galeria.html">Galeria</a>
-        <a href="pages/kontakt.html">Kontakt</a>
-      </nav>
+  <a href="pages/oferta.html">Oferta</a>
+  <a href="pages/galeria.html">Galeria</a>
+  <a href="pages/kontakt.html">Kontakt</a>
+  <a href="pages/extras.html">Extras</a>
+  <a href="#booking" class="btn booking-btn">Rezerwuj</a>
+</nav>
     </div>
   </header>
 
-  <section class="hero">
-    <div class="container">
+  <section class="banner">
+  <div class="banner-slide" style="background-image:url('img/banner1.jpg')">
+    <div class="banner-content">
       <h2>Wypoczynek jak marzenie</h2>
-      <p>Sowieckie domki i socjalistyczne pokoje w czerwonej okolicy.</p>
+      <p>Domki i apartamenty w sercu malowniczych Chojnów Pod Ostrowią</p>
       <a href="pages/oferta.html" class="btn">Sprawdź ofertę</a>
     </div>
-  </section>
+  </div>
+  <!-- możesz dodać kolejne slajdy -->
+</section>
+
 
   <section class="highlights container">
     <div class="highlight">
@@ -44,5 +50,37 @@
   <footer class="site-footer container">
     <p>&copy; 2025 Domki i Hotele</p>
   </footer>
+  <!-- Rezerwacja modal -->
+<div id="booking-modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Rezerwacja</h2>
+    <input id="date-picker" placeholder="Wybierz datę" readonly>
+    <input type="text" id="guests" placeholder="Liczba gości" />
+    <button id="confirm-booking" class="btn">Potwierdź</button>
+  </div>
+</div>
+
+<!-- Flatpickr -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+  flatpickr("#date-picker", {
+    minDate: "today",
+    dateFormat: "d-m-Y"
+  });
+
+  document.querySelector('.booking-btn').onclick = () =>
+    document.getElementById('booking-modal').style.display = 'block';
+
+  document.querySelector('.close').onclick = () =>
+    document.getElementById('booking-modal').style.display = 'none';
+
+  document.getElementById('confirm-booking').onclick = () => {
+    alert('Dziękujemy! Twoja rezerwacja została przesłana.');
+    document.getElementById('booking-modal').style.display = 'none';
+  };
+</script>
+
 </body>
 </html>
