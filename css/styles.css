@@ -72,3 +72,34 @@ body{
 .modal-content{background:#fff;padding:2rem;border-radius:6px;width:90%;max-width:400px;position:relative;}
 .close{position:absolute;top:1rem;right:1rem;cursor:pointer;font-size:1.2rem;}
 .modal-content input, .modal-content button{width:100%;margin-top:1rem;padding:.6rem;font-size:1rem;}
+/* 1. Galeria: piękne ramki wokół miniaturek */
+.gallery-grid img {
+  width: 100%;
+  height: 200px;               /* stała wysokość */
+  object-fit: cover;           /* przytnie i wypełni ramkę */
+  border: 4px solid #fff;      /* gruba biała ramka */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border-radius: 12px;
+  display: block;              /* usuwa domyślne inline-gap */
+}
+
+/* 2. Fakultety: ramki także dla <img> i <iframe> */
+.fakultet-card img,
+.fakultet-card iframe {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border: 4px solid #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border-radius: 12px;
+  display: block;
+}
+
+/* 3. Upewnij się, że grid ma wystarczające odstępy */
+.gallery-grid,
+.fakultety-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+  gap: 1.5rem;
+  padding: 2rem 0;
+}
